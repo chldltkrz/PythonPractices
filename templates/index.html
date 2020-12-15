@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> {{title}} </title>
+</head>
+<body>
+    <h1> Say Hello </h1>
+    <p> Hello My name is {{ name }} and I am 
+    {% if age < 20 %} 
+        young </p>
+    {% elif age >= 20 and age < 40 %} 
+        youth </p>
+    {% else %}
+        old </p>
+    {% endif %}
+    {% block body %}
+    {% endblock %}
+
+</body>
+</html>

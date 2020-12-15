@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+
+{% block body %}
+    <p> Hello My name is {{ name }} and I am 
+    {% if age < "20" %} 
+        young </p>
+    {% elif age >= "30" and age < "40" %} 
+        youth </p>
+    {% else %}
+        old </p>
+    {% endif %}
+{% endblock %}
