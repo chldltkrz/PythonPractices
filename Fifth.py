@@ -25,7 +25,7 @@ nums = {
 
 def translate(number: int) -> str:
     translation = ""
-    # Should count Special cases that a number is divisible by 10 or 100, 
+    # Should count Special cases that a number is divisible by 10 or 100,
     # cases 1-99
     if number > 0 and number < 100:
         if number % 10 == 0 or number < 20:
