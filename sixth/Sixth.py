@@ -1,6 +1,7 @@
 """
 Question 18: 
-By starting at the top of the triangle below and moving to adjacent numbers on the row below, the maximum total from top to bottom is 23.
+By starting at the top of the triangle below and moving to adjacent numbers on the row below, 
+the maximum total from top to bottom is 23.
 
 3
 7 4
@@ -38,25 +39,53 @@ In this method, A Recursive is used to 'smartly' move to next y-coordinate
 Cases that should be considered are first, and last, and in between ones
 
 """
+
+"""
+DOCSTRING FOR THE FOLLOWING METHOD 
+=========================
+This method is greedy algorithm using recursive, not dynamic programming.
+The answer it yields is 1064, which is max that greedy can get
+
 def calculate_max(list, index=0, counter=0):
+    
+    #Define Local Variable for returning a value 
     tot_value=0
+    
+    #Initial Case , 
     if index == 0:
-        print(list[index][counter])
         tot_value = list[index][counter] + calculate_max(list, index+1, counter)
         return tot_value
+    #The last Case
     elif index == len(list):
-        print("size of list is {}".format(len(list)))
         return 0
+    #The case in between 1 < x < len(list)
     else:
-        
+        #Chosing left(same) y-coordinate
         if list[index][counter] > list[index][counter+1]:
-            print(list[index][counter])
-            next = list[index][counter] + calculate_max(list,index+1,counter)
-            return next
+            return list[index][counter] + calculate_max(list,index+1,counter)
+        #Chosing right(Larger) y-cordinate
         else:
-            print(list[index][counter+1])
-            next = list[index][counter+1] + calculate_max(list,index+1,counter+1)
-            return next
+            return list[index][counter+1] + calculate_max(list,index+1,counter+1)
+"""
+
+
+def calculate_max(lists):
+    # from Bottom
+    for y, y_lists in reversed(list(enumerate(lists))):
+        # If reaches top-1, pass the code for evading segmentation fault
+        if y == len(lists)-1:
+            pass
+        # Sweeping through all the items in the row,
+        for x, x_items in enumerate(y_lists):
+            # If reaches right-1, pass the code for evading segmentation fault
+            if x == len(y_lists)-1:
+                pass
+            # Compare Current Item and Item next to it,
+            # and save greater value to upper node
+            else:
+                lists[y-1][x] += max(x_items, y_lists[x+1])
+        print(y_lists)
+
 
 if __name__ == "__main__":
     nums = list()
@@ -66,4 +95,3 @@ if __name__ == "__main__":
             to_int = [int(n) for n in temp_list]
             nums.append(to_int)
     print(calculate_max(nums))
-

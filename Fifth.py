@@ -19,8 +19,9 @@ nums = {
     100: "hundred",
 }
 
-
-# The method is converting incoming integer into string.
+""" 
+The method is converting incoming integer into string.
+"""
 
 
 def translate(number: int) -> str:
