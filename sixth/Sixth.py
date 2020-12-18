@@ -89,7 +89,7 @@ def calculate_max(lists):
 
 if __name__ == "__main__":
     nums = list()
-    with open('C:/Users/test/Downloads/flasktest/sixth/sixth.txt', 'r') as f:
+    with open('C:/Users/test/Downloads/flasktest/sixth/p067_triangle.txt', 'r') as f:
         for each_line in f:
             temp_list = each_line.split()
             to_int = [int(n) for n in temp_list]
